@@ -1,0 +1,104 @@
+.wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  justify-self: center;
+}
+
+.ring {
+  --score: 0deg;
+  width: 42px;
+  height: 42px;
+  background: conic-gradient(var(--ring, #b9c5bb) var(--score), var(--score-ring-bg) 0deg);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ring::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: var(--score-ring-inner);
+  border-radius: 50%;
+}
+
+.ring span {
+  z-index: 1;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* 5 Rating Tiers */
+.excellent {
+  --ring: #2e7d32;
+}
+
+.good {
+  --ring: #43a047;
+}
+
+.moderate {
+  --ring: #d5ad45;
+}
+
+.poor {
+  --ring: #e67e22;
+}
+
+.severe {
+  --ring: #d32f2f;
+}
+
+.noScore .ring {
+  background: var(--score-ring-bg);
+}
+
+.wrap > div:nth-child(2) > strong {
+  display: block;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.wrap p {
+  color: var(--muted);
+  font-size: 10px;
+  margin: 1px 0 0;
+  white-space: nowrap;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.15s;
+  position: absolute;
+  width: 185px;
+  z-index: 5;
+  top: 45px;
+  left: 0;
+  background: #192d24;
+  color: #eaf1ed;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 7px;
+  font-size: 11px;
+  line-height: 1.45;
+  padding: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.wrap:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 440px) {
+  .tooltip {
+    left: auto;
+    right: 0;
+  }
+}

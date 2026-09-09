@@ -1,0 +1,75 @@
+.empty {
+  padding: 45px;
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+}
+
+.empty h3 {
+  margin: 8px 0;
+  color: var(--ink);
+}
+
+.empty p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  background: var(--surface-raised);
+  border: 1px solid var(--surface-raised-border);
+  border-radius: 10px;
+  padding: 24px;
+  margin: 10px 0 5px;
+}
+
+.intro > div:first-child {
+  border-right: 1px solid var(--surface-raised-divider);
+}
+
+.brandMark {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  background: var(--lime);
+  border-radius: 9px 9px 9px 2px;
+  color: var(--deep);
+  margin-bottom: 12px;
+}
+
+.intro h2 {
+  font-family: 'Playfair Display', serif;
+  margin: 0 0 7px;
+  font-size: 23px;
+  color: var(--ink);
+}
+
+.intro strong {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.intro p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+  max-width: 410px;
+}
+
+@media (max-width: 800px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+
+  .intro > div:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--surface-raised-divider);
+    padding-bottom: 16px;
+  }
+}

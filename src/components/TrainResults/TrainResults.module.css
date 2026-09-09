@@ -1,0 +1,245 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.kicker {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  letter-spacing: -0.7px;
+  margin: 5px 0 4px;
+  font-weight: 600;
+}
+
+.arrow {
+  color: #d8783d;
+  margin: 0 5px;
+}
+
+.heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dot {
+  margin: 0 5px;
+}
+
+.liveNote {
+  border-radius: 20px;
+  background: var(--live-note-bg);
+  color: var(--live-note-color);
+  font-weight: 600;
+  font-size: 11px;
+  padding: 7px 11px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.pulse {
+  height: 6px;
+  width: 6px;
+  background: #52ae5c;
+  box-shadow: 0 0 0 4px rgba(82, 174, 92, 0.13);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-top: 22px;
+  padding: 12px 0;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+}
+
+.filterGroup > svg {
+  margin-right: 2px;
+}
+
+.filterGroup > button,
+.timeDropdown > button {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--ink);
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.disabledGroup button {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.scoreHint {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.selected {
+  color: var(--ink) !important;
+  background: var(--selected-bg) !important;
+  border-color: var(--selected-border) !important;
+}
+
+/* Time filter dropdown */
+.timeDropdown {
+  position: relative;
+}
+
+.timeMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: var(--time-menu-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 4;
+  min-width: 130px;
+  overflow: hidden;
+}
+
+.timeDropdown:hover .timeMenu,
+.timeDropdown:focus-within .timeMenu {
+  display: block;
+}
+
+.timeMenu button {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 8px 12px;
+  font-size: 12px;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.timeMenu button:hover {
+  background: var(--soft);
+}
+
+.activeTime {
+  color: var(--accent-fg) !important;
+  font-weight: 700;
+  background: var(--selected-bg) !important;
+}
+
+.sortLabel {
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sortLabel select {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  padding: 4px 8px;
+  outline: 0;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.sortLabel select option {
+  background: var(--card-bg);
+  color: var(--ink);
+}
+
+.sortLabel select option:disabled {
+  color: var(--muted);
+}
+
+/* Train list */
+.trainList {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .heading {
+    align-items: flex-start;
+  }
+
+  .liveNote {
+    display: none;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .filterGroup {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .filterGroup > button,
+  .timeDropdown > button {
+    white-space: nowrap;
+  }
+
+  .sortLabel {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 440px) {
+  .heading h2 {
+    font-size: 21px;
+  }
+}
+

@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+
+/* ───── Light Theme Variables ───── */
+:root {
+  color-scheme: light;
+  --ink: #1f2925;
+  --forest: #165b4d;
+  --deep: #10473c;
+  --lime: #d7f36b;
+  --paper: #fbfbf7;
+  --line: #dce1d8;
+  --muted: #65736b;
+  --soft: #edf4ed;
+
+  /* Text that uses brand-green colour on card/paper backgrounds */
+  --accent-fg: #10473c;
+
+  /* Surface tokens used across CSS modules */
+  --card-bg: #ffffff;
+  --card-border: #d9dfd7;
+  --input-bg: #ffffff;
+  --detail-bg: #fafcf9;
+  --days-bg: #fcfdfb;
+  --days-border: #edf0ec;
+  --surface-raised: #f4f7f1;
+  --surface-raised-border: #dce5d9;
+  --surface-raised-divider: #d7e0d6;
+  --method-bg: #e9efe7;
+  --method-border: #b9c8b9;
+  --popover-bg: #ffffff;
+  --score-ring-bg: #e8ece5;
+  --score-ring-inner: #ffffff;
+  --delay-box-bg: #f0f5ed;
+  --chart-line: #e2e8e1;
+  --insight-bg: #f0f5ed;
+  --time-menu-bg: #ffffff;
+  --recommended-bg: #e7f4d9;
+  --recommended-color: #487734;
+  --live-note-bg: #eff7eb;
+  --live-note-color: #317044;
+  --selected-bg: #eaf5eb;
+  --selected-border: #9bc7a0;
+  --tag-runs-bg: #e3f0e2;
+  --tag-runs-fg: #357741;
+  --tag-norun-bg: #f0f2ee;
+  --tag-norun-fg: #bdc5be;
+  --toast-bg: #1c493b;
+}
+
+/* ───── Dark Theme Variables ───── */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e2ece7;
+  --forest: #165b4d;
+  --deep: #10473c;
+  --lime: #c8e85f;
+  --paper: #0c1613;
+  --line: #22352f;
+  --muted: #92a89e;
+  --soft: #162822;
+
+  /* Light green for brand/link TEXT that must be readable on dark surfaces */
+  --accent-fg: #6ed2aa;
+
+  --card-bg: #14221d;
+  --card-border: #233730;
+  --input-bg: #0d1a16;
+  --detail-bg: #101b17;
+  --days-bg: #121e1a;
+  --days-border: #1d2e27;
+  --surface-raised: #121e19;
+  --surface-raised-border: #22352e;
+  --surface-raised-divider: #1f3029;
+  --method-bg: #0c1713;
+  --method-border: #233830;
+  --popover-bg: #14221d;
+  --score-ring-bg: #233730;
+  --score-ring-inner: #14221d;
+  --delay-box-bg: #172822;
+  --chart-line: #233730;
+  --insight-bg: #172822;
+  --time-menu-bg: #14221d;
+  --recommended-bg: #193322;
+  --recommended-color: #84e49c;
+  --live-note-bg: #193322;
+  --live-note-color: #84e49c;
+  --selected-bg: #1b3829;
+  --selected-border: #3b7454;
+  --tag-runs-bg: #1f3d2a;
+  --tag-runs-fg: #86e49f;
+  --tag-norun-bg: #17231e;
+  --tag-norun-fg: #5b7368;
+  --toast-bg: #10382b;
+}
+
+/* ───── Resets ───── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: 'DM Sans', Arial, sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ───── Shared Utilities ───── */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #53725f;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ───── Layout ───── */
+.results-section {
+  max-width: 1030px;
+  margin: 0 auto;
+  padding: 41px 20px 60px;
+}
+
+/* ───── Toast ───── */
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9;
+  background: var(--toast-bg);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 7px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ───── Responsive ───── */
+@media (max-width: 800px) {
+  .results-section {
+    padding: 32px 14px 45px;
+  }
+}

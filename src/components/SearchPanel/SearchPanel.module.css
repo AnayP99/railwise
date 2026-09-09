@@ -1,0 +1,209 @@
+.panel {
+  position: relative;
+  background: var(--card-bg);
+  max-width: 1000px;
+  margin: 31px auto 13px;
+  min-height: 92px;
+  border-radius: 11px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1.22fr 35px 1.22fr 0.82fr 154px;
+  align-items: stretch;
+  text-align: left;
+  color: var(--ink);
+  box-shadow: 0 17px 35px rgba(0, 0, 0, 0.18);
+}
+
+.stationField {
+  position: relative;
+}
+
+.fieldLabel {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  font-weight: 700;
+  display: block;
+  margin: 1px 0 6px 37px;
+}
+
+.stationButton {
+  border: 0;
+  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.stationInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.stationButton strong {
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: 700;
+}
+
+.stationButton small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.stationButton > svg {
+  margin-left: auto;
+  color: var(--muted);
+}
+
+.stationPin {
+  width: 13px;
+  height: 13px;
+  border: 3px solid var(--accent-fg);
+  border-radius: 50%;
+  display: block;
+  flex: 0 0 auto;
+  margin: 1px 1px 0 7px;
+}
+
+.destination {
+  border-color: #e57a3e;
+  border-radius: 3px;
+}
+
+.swap {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--accent-fg);
+  background: var(--card-bg);
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.swap:active {
+  transform: rotate(180deg);
+}
+
+.swap svg + svg {
+  margin-left: -5px;
+  margin-top: 7px;
+}
+
+.dateField {
+  border-left: 1px solid var(--line);
+  padding-left: 13px;
+  position: relative;
+}
+
+.dateField .fieldLabel {
+  margin-left: 31px;
+}
+
+.dateInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 13px;
+}
+
+.dateInput input {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  color: var(--ink);
+  background: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dateInput svg {
+  color: var(--accent-fg);
+  flex: none;
+}
+
+.searchButton {
+  border: 0;
+  background: var(--lime);
+  border-radius: 7px;
+  color: #1b352c;
+  font-weight: 700;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.searchButton:hover {
+  transform: translateY(-1px);
+}
+
+.searchButton:disabled {
+  opacity: 0.85;
+  cursor: wait;
+}
+
+@media (max-width: 800px) {
+  .panel {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .stationField,
+  .dateField {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 7px 10px;
+  }
+
+  .dateField {
+    border-left: 1px solid var(--line);
+  }
+
+  .fieldLabel,
+  .dateField .fieldLabel {
+    margin: 0 0 5px 30px;
+  }
+
+  .stationButton {
+    min-height: 34px;
+  }
+
+  .swap {
+    position: absolute;
+    right: 26px;
+    top: 72px;
+    transform: rotate(90deg);
+  }
+
+  .dateInput {
+    padding-left: 0;
+  }
+
+  .searchButton {
+    margin: 0;
+    height: 44px;
+  }
+}
+
